@@ -1,0 +1,17 @@
+<section>
+  <article>
+    <h3>Interpolation / Interpolacao</h3>
+    <p>String renderizada por interpolacao: {{ url }}</p>
+    <p>Resultado de 1 + 1 eh : {{ 1 + 1 }}</p>
+    <p>Resultado de 1 + 1 nao eh: {{ 1 + 1 + getValor() }}</p>
+    <p>Curso de Angular e gosto do curso: {{ cursoAngular && getCurtirCurso() }} </p>
+  </article>
+
+  <article>
+    <h3>Property Binding</h3>
+    <img src="{{ urlImage }}" alt="Natureza">
+    <img [src]="urlImage" alt="Natureza">
+    <img bind-src="urlImage" alt="Natureza" [attr.height]="250" [attr.border]="3" [attr.title]="'Ola Mundo'">
+    <!-- 4 Modo -> *** MUITO IMPORTANTE CURIOSIDADE IMPORTANTE [att.colspan] ADICIONAR ATRIBUTO A TAG HTML-->
+  </article>
+</section>
