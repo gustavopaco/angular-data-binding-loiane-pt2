@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-3">
   <section class="mb-3">
     <article>
       <!-- Salvando: Interpolation Binding-->
@@ -70,4 +70,15 @@
     </article>
   </section>
 <app-meu-form></app-meu-form>
+  <section class="mb-3">
+    <article>
+      <!--IMPORTANT: Input/Output Properties, enviar dados de componentes(FRAGMENTS) Pai pra filhos(Input) e filhos para Pai(Output)-->
+      <h3>Input/Output Properties</h3>
+
+      <app-curso [nome]="nomeDoCurso"></app-curso>
+
+      <contador [valorOutPut]="valorInicial" (mudouValor)="onMudouValor($event)"></contador>
+
+    </article>
+  </section>
 </div>

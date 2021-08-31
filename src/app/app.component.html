@@ -1,1 +1,18 @@
+<div class="container mb-3">
+  <section>
+    <article>
+      <!--IMPORTANT: Ciclo de vida do component-->
+      <h2>Ciclo de vida dos components</h2>
+      <app-ciclo [valorInicial]="valor" *ngIf="!deletarCiclo"></app-ciclo>
+      <div class="row col-12 col-md-4">
+        <div class="col-6">
+          <button class="btn btn-primary" (click)="mudarValor()">Mudar Valor</button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-secondary" (click)="destruirCiclo()">Deletar</button>
+        </div>
+      </div>
+    </article>
+  </section>
+</div>
 <app-data-binding></app-data-binding>
