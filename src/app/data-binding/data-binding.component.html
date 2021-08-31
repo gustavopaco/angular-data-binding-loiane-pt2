@@ -1,17 +1,73 @@
-<section>
-  <article>
-    <h3>Interpolation / Interpolacao</h3>
-    <p>String renderizada por interpolacao: {{ url }}</p>
-    <p>Resultado de 1 + 1 eh : {{ 1 + 1 }}</p>
-    <p>Resultado de 1 + 1 nao eh: {{ 1 + 1 + getValor() }}</p>
-    <p>Curso de Angular e gosto do curso: {{ cursoAngular && getCurtirCurso() }} </p>
-  </article>
+<div class="container">
+  <section class="mb-3">
+    <article>
+      <!-- Salvando: Interpolation Binding-->
+      <h2>Interpolation / Interpolacao</h2>
+      <p>String renderizada por interpolacao: {{ url }}</p>
+      <p>Resultado de 1 + 1 eh : {{ 1 + 1 }}</p>
+      <p>Resultado de 1 + 1 nao eh: {{ 1 + 1 + getValor() }}</p>
+      <p>Curso de Angular e gosto do curso: {{ cursoAngular && getCurtirCurso() }} </p>
+    </article>
+  </section>
+  <section class="mb-3">
+    <article>
+      <h2>Property Binding</h2>
+      <img src="{{ urlImage }}" alt="Natureza">
+      <img [src]="urlImage" alt="Natureza">
+      <img bind-src="urlImage" alt="Natureza" [attr.height]="150" [attr.border]="3" [attr.title]="'Ola Mundo'">
+      <!-- 4 Modo -> *** MUITO IMPORTANTE CURIOSIDADE IMPORTANTE [att.colspan] ADICIONAR ATRIBUTO A TAG HTML-->
+    </article>
+  </section>
+  <section>
+    <article class="mb-3">
+      <!-- IMPORTANT: Class e Style Binding-->
+      <h2>Class e Style Binding</h2>
+      <div>
+        Selecione uma classe:
+        <select #classeColor (change)="0">
+          <option value="alert-primary" class="alert">Primary</option>
+          <option value="alert-secondary" class="alert">Secondary</option>
+          <option value="alert-warning" class="alert">Warning</option>
+          <option value="alert-danger" class="alert">Danger</option>
+        </select>
+        <br><br>
+        <div class="alert" role="alert" [class.alert-primary]="classeColor.value === 'alert-primary'">
+          A simple primary alert—check it out!
+        </div>
+        <div class="alert" role="alert" [class.alert-secondary]="classeColor.value === 'alert-secondary'">
+          A simple secondary alert—check it out!
+        </div>
+        <div class="alert" role="alert" [class.alert-warning]="classeColor.value === 'alert-warning'">
+          A simple warning alert—check it out!
+        </div>
+        <div class="alert" role="alert" [class.alert-danger]="classeColor.value === 'alert-danger'">
+          A simple danger alert—check it out!
+        </div>
+      </div>
 
-  <article>
-    <h3>Property Binding</h3>
-    <img src="{{ urlImage }}" alt="Natureza">
-    <img [src]="urlImage" alt="Natureza">
-    <img bind-src="urlImage" alt="Natureza" [attr.height]="250" [attr.border]="3" [attr.title]="'Ola Mundo'">
-    <!-- 4 Modo -> *** MUITO IMPORTANTE CURIOSIDADE IMPORTANTE [att.colspan] ADICIONAR ATRIBUTO A TAG HTML-->
-  </article>
-</section>
+      <div class="alert {{ classeColor.value }}" role="alert">
+        Texto colorido conforme o que foi selecionado
+      </div>
+
+      <div class="alert alert-danger" [style.display]="classeColor.value === 'alert-danger' ? 'block' : 'none'" role="alert">
+        Esse texto somente aparece em caso de erro
+      </div>
+    </article>
+  </section>
+  <section class="mb-3">
+    <article>
+      <!-- IMPORTANT: Event Binding-->
+      <h2>Event Binding</h2>
+      <button type="button" class="btn btn-primary" (click)="botaoClicado()">Clique</button>
+      <br><br>
+      <input type="text" (keyup)="onKeyUp($event)" (keyup.enter)="salvarValor($any($event))"
+             (blur)="Blur(campoInput.value)"
+             #campoInput>
+      <p>Valor Atual {{ valorAtual }}</p>
+      <p>Valor Salvo {{ valorSalvo }}</p>
+      <p>Valor Foco {{ focoValor }}</p>
+      <span (mouseover)="mouseOverInOut()" (mouseout)="mouseOverInOut()" [class.highlight]="isMouseover">Passe o Mouse sobre mim</span>
+    </article>
+  </section>
+<app-meu-form></app-meu-form>
+</div>

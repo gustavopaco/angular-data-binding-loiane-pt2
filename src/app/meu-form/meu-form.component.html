@@ -1,0 +1,28 @@
+<p>meu-form component!</p>
+<section class="mb-3">
+  <article>
+    <!--IMPORTANT: Two-way Data Binding-->
+    <h2>Two-way Data Binding</h2>
+    <div class="mb-3">
+      <input type="text" [value]="nome" (input)="nome = ($any($event.target).value)">
+    </div>
+    <div class="mb-3">
+      <input type="text" [ngModel]="nome" (ngModelChange)="nome = $event">
+    </div>
+    <div class="mb-3">
+      <input type="text" [(ngModel)]="nome">
+      <p>Voce digitou o nome {{ nome }}</p>
+    </div>
+    <div class="row mb-3 col-12">
+      <p>Meu nome eh {{ pessoa.nome }} e tenho {{ pessoa.idade }} anos de idade</p>
+      <div class="col-6">
+        <label for="pessoaNome">Nome</label>
+        <input class="form-control" type="text" id="pessoaNome" [(ngModel)]="pessoa.nome">
+      </div>
+      <div class="col-6">
+        <label for="pessoaIdade">Idade</label>
+        <input class="form-control" type="text" id="pessoaIdade" [(ngModel)]="pessoa.idade">
+      </div>
+    </div>
+  </article>
+</section>

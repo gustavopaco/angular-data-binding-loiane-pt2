@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataBindingComponent implements OnInit {
 
-  url : string = "http://loaine.com";
-  cursoAngular : boolean = true;
-  urlImage : string = "https://lorempixel.com/400/200/nature/";
+  url : String = "http://loaine.com";
+  cursoAngular : Boolean = true;
+  urlImage : String = "https://lorempixel.com/400/200/nature/";
+  valorAtual : String = "";
+  valorSalvo : String = "";
+  focoValor : String;
+  isMouseover = false;
+
 
   constructor() { }
 
@@ -22,5 +27,26 @@ export class DataBindingComponent implements OnInit {
 
   getCurtirCurso() {
     return true;
+  }
+
+  botaoClicado() {
+    alert("Botao Clicado!")
+  }
+
+  onKeyUp($event: KeyboardEvent) {
+    this.valorAtual = (<HTMLInputElement>$event.target).value;
+  }
+
+
+  salvarValor($event: KeyboardEvent) {
+    this.valorSalvo = (<HTMLInputElement>$event.target).value;
+  }
+
+  Blur(value: string) {
+    this.focoValor = value
+  }
+
+  mouseOverInOut() {
+    this.isMouseover = !this.isMouseover;
   }
 }
